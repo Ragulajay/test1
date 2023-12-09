@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+    background-image: url('/static/fuel/images/blur-evening-gas-station-highway.jpg');
+    background-size: cover;
+}
+        header {
+    background-color: rebeccapurple;
+    color: wheat;
+    padding: 9px;
+    margin-bottom: 30px;
+
+}
+        h2 {
+    font-size: 24px;
+    font-family: cursive;
+    text-decoration: underline;
+    margin-bottom: 25px;
+}
+        p {
+    margin-bottom: 20px;
+    /* display: block; */
+    align-items: flex-end;
+}
+        label {
+    text-align: left;
+    font-family: cursive;
+}
+        .fuel {
+    border: 1px solid black;
+    width: 50%;
+    padding: 25px;
+    background-color: wheat;
+    border-radius: 10px;
+}
+        button {
+    background: black;
+    color: white;
+    padding: 7px;
+    border-radius: 5px;
+    text-decoration: blink;
+    font-family: cursive;
+}
+    </style>
+</head>
+<body>
+<center>
+    <header>
+    <h1>Welcome to On-Road Fuel Demand System</h1>
+</header>
+    <!-- fuel_request.html -->
+<div class="fuel">
+<h2>Fuel Request Form</h2>
+
+<form method="post" action="{% url 'fuel_request' %}">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Submit</button>
+
+
+    <h2>Fuel Request Details</h2>
+<p>Name: {{ fuel_request.name }}</p>
+<p>Mobile no: {{ fuel_request.mobile_no }}</p>
+<!-- Add other fuel request details -->
+
+<p>Delivery Status: {{ fuel_request.delivery_status }}</p>
+
+    {% if fuel_request.delivery %}
+  <h3>Delivery Details</h3>
+  <p>Delivery Boy Name: {{ fuel_request.delivery.delivery_boy_name }}</p>
+  <p>Delivery Boy Mobile: {{ fuel_request.delivery.delivery_boy_mobile }}</p>
+{% endif %}
+
+
+
+
+</form>
+    <a href="{% url 'home' %}">Go to Home page</a>
+
+        </div>
+
+</center>
+
+</body>
+</html>

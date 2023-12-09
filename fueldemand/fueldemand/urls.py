@@ -1,0 +1,9 @@
+# main urls.py
+
+from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', include('fuel.urls')),  # Replace 'your_app_name' with the actual name of your Django app
+]

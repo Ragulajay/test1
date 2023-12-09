@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+    background-image: url('/static/fuel/images/blur-evening-gas-station-highway.jpg');
+    background-size: cover;
+}
+a {
+    color: white;
+}
+        header {
+    background-color: rebeccapurple;
+    color: wheat;
+    padding: 9px;
+    margin-bottom: 30px;
+
+}
+        .border {
+    border: 1px solid black;
+    width: 50%;
+    padding: 25px;
+    background-color: wheat;
+    border-radius: 10px;
+    font-family: cursive;
+}
+        button {
+    padding: 6px;
+    background-color: black;
+    color: white;
+    font-family: cursive;
+    border-radius: 12px;
+}
+    </style>
+</head>
+<body>
+
+<center>
+    <header>
+    <h1>Welcome to On-Road Fuel Demand System</h1>
+</header>
+    <!-- fuel_station.html -->
+<div class="border">
+<h2>Fuel Station Dashboard</h2>
+{% for fuel_request in fuel_requests %}
+  <p>Name : {{ fuel_request.name }} <br> Mobile no : {{ fuel_request.mobile_no }} <br> Location : {{ fuel_request.location }} <br> Type : {{ fuel_request.fuel_type }} <br> Liters : {{ fuel_request.liters }} </p>
+  <a href="{% url 'accept_fuel_request' fuel_request.id %}"><button>Accept</button></a><br>
+{% endfor %}
+    </div>
+
+    <a href="{% url 'home' %}">Go to Home page</a>
+</center>
+
+</body>
+</html>

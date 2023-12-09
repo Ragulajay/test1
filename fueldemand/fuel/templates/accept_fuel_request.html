@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+    background-image: url('/static/fuel/images/blur-evening-gas-station-highway.jpg');
+    background-size: cover;
+}
+        header {
+    background-color: rebeccapurple;
+    color: wheat;
+    padding: 9px;
+    margin-bottom: 30px;
+
+}
+        .border {
+    border: 1px solid black;
+    width: 50%;
+    padding: 25px;
+    background-color: wheat;
+    border-radius: 10px;
+    font-family: cursive;
+}
+        button {
+    padding: 6px;
+    background-color: black;
+    color: white;
+    font-family: cursive;
+    border-radius: 12px;
+}
+        a {
+    color: white;
+}
+    </style>
+</head>
+<body>
+
+<center>
+    <header>
+    <h1>Welcome to On-Road Fuel Demand System</h1>
+</header>
+    <!-- accept_fuel_request.html -->
+    <div class="border">
+
+<h2>Accept Fuel Request</h2>
+<form method="post" action="{% url 'accept_fuel_request' fuel_request.id %}">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Accept</button>
+</form>
+        </div>
+<a href="{% url 'home' %}">Go to Home page</a>
+</center>
+
+</body>
+</html>

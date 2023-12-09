@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+    background-image: url('/static/fuel/images/blur-evening-gas-station-highway.jpg');
+    background-size: cover;
+}
+        header {
+    background-color: rebeccapurple;
+    color: wheat;
+    padding: 9px;
+    margin-bottom: 30px;
+
+}
+        #login-container {
+            width: 300px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+         label {
+            display: block;
+            margin-bottom: 8px;
+            color: white;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+        a {
+    text-decoration: none;
+    font-family: cursive;
+    color: white;
+    font-size: 13px;
+}
+
+    </style>
+</head>
+<body>
+
+
+<center>
+    <!-- index.html -->
+<header>
+    <h1>Welcome to On-Road Fuel Demand System</h1>
+</header>
+    <div id="login-container">
+        <label for="username">Username:</label>
+        <input type="text" id="username" placeholder="Enter your username">
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" placeholder="Enter your password">
+
+        <button onclick="validateLogin()"><a href="{% url 'fuel_station' %}">Login</a></button>
+    </div>
+
+
+
+
+
+</center>
+
+
+ <script>
+        function validateLogin() {
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            if (username === 'ajay' && password === '1234') {
+                alert('Login successful!');
+            } else {
+<!--                alert('Invalid username or password. Please try again.');-->
+            }
+        }
+    </script>
+
+</body>
+</html>
